@@ -1,46 +1,40 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <LinearLayout
-        android:id="@+id/textInputContainer"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- TextInputEditText inicial -->
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Texto 1" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Agregar"
-        android:onClick="agregarTextInputEditText" />
+            <Button
+                android:id="@+id/btnAgregarPalabramain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Agregar Palabra" />
 
-    <Button
-        android:id="@+id/copiarButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Copiar"
-        android:onClick="copiarTexto" />
+            <Button
 
-    <TextView
-        android:id="@+id/textoAcumuladoTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Generar Ecuacion"
+                android:onClick="generarEcuacion" />
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

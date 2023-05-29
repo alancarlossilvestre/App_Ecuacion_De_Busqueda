@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/LinearPalabraContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/border"
+                    >
+                    <TextView
+                        android:id="@+id/textViewIngresePalabra"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Ingrese Palabra"
+                        android:textStyle="bold"
+                        />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/palabra_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Palabra 1"
+                        />
+                    <TextView
+                        android:id="@+id/txtViewPS"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Ingrese o elimine sinonimos"
+                        android:layout_marginLeft="13dp"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/textInputSinonimoContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="13dp"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/inputEditTextSinonimo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Sinonimo 1"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutAddDelet"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        >
+                        <ImageView
+                            android:id="@+id/addS"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/baseline_add_24"
+                            android:layout_marginRight="30dp"
+                            />
+                        <ImageView
+                            android:id="@+id/quitarS"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/baseline_delete_24"
+                            android:layout_marginLeft="30dp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+</LinearLayout>
