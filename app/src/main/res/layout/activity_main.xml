@@ -36,13 +36,32 @@
                 android:text="Generar Ecuacion"
                 android:onClick="generarEcuacion" />
 
+        <LinearLayout
+            android:id="@+id/containerEcuacion"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/border"
+            >
+
             <TextView
                 android:id="@+id/txtViewEcuacion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
                 android:padding="16dp"
                 android:textAppearance="?android:textAppearanceMedium"
                 />
+
+            <ImageView
+                android:id="@+id/btnCopiar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_content_copy_24"
+                />
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

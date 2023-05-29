@@ -1,5 +1,7 @@
 package com.example.dicionario
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,12 +13,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var copiarTextoManager: copiarTextoManager
+
     private lateinit var linearLayout: LinearLayout
     private lateinit var btnAgregar: Button
 
@@ -27,6 +30,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnAddS : AppCompatImageView
     private lateinit var btnDeleteS :AppCompatImageView
     private var contadorP = 0
+
+    private lateinit var btnCopiarEcuacion :AppCompatImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +54,11 @@ class MainActivity : AppCompatActivity() {
             generarEcuacion(it)
 
         }
+        btnCopiarEcuacion = findViewById(R.id.btnCopiar)
+        btnCopiarEcuacion.setOnClickListener {
+            copiarTexto()
+        }
+
 
     }
 
@@ -130,6 +140,15 @@ class MainActivity : AppCompatActivity() {
         val resultado = stringBuilder.toString()
         textViewEcuacion.text = resultado
     }
+    private fun copiarTexto() {
+        val texto = textViewEcuacion.text.toString()
+
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Texto copiado", texto)
+        clipboard.setPrimaryClip(clip)
+
+    }
+
 
 
 }
