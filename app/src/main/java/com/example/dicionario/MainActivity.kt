@@ -52,7 +52,20 @@ class MainActivity : AppCompatActivity() {
         txtInputPalabra.hint = "Palabra $contadorP"
         txtInputSinonimo.hint = "Sinonimo"
 
+        btnAdd.setOnClickListener {
+            agregarSinonimo(nuevoElemento)
+        }
+
         linearLayout.addView(nuevoElemento)
     }
-
+    private fun agregarSinonimo(parentView: View) {
+        val txtInputSinonimoContainer = parentView.findViewById<LinearLayout>(R.id.textInputSinonimoContainer)
+        val nuevoSinonimo = TextInputEditText(this)
+        nuevoSinonimo.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        nuevoSinonimo.hint = "Sinónimo ${txtInputSinonimoContainer.childCount + 1}"
+        txtInputSinonimoContainer.addView(nuevoSinonimo)
+    }
 }
