@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var copiarTextoManager: copiarTextoManager
     private lateinit var linearLayout: LinearLayout
     private lateinit var btnAgregar: Button
-    private lateinit var txtPalabrasSinonimos: TextView
+
+    private lateinit var textViewEcuacion: TextView
+
 
 
     private lateinit var btnAddS : AppCompatImageView
@@ -33,7 +35,10 @@ class MainActivity : AppCompatActivity() {
         linearLayout = findViewById(R.id.linearLayoutMain)
         btnAgregar = findViewById(R.id.btnAgregarPalabramain)
 
-        txtPalabrasSinonimos = findViewById(R.id.txtPalabrasSinonimos)
+
+
+        textViewEcuacion = findViewById(R.id.txtViewEcuacion)
+
 
         btnAgregar.setOnClickListener {
             agregarElemento()
@@ -41,12 +46,9 @@ class MainActivity : AppCompatActivity() {
 
         val btnGenerar = findViewById<Button>(R.id.btnUnirPalabrasSinonimos)
         btnGenerar.setOnClickListener {
-            generarTextoPalabrasSinonimos()
+            generarEcuacion(it)
+
         }
-
-    }
-
-    fun generarEcuacion(view: View) {
 
     }
 
@@ -92,31 +94,42 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun generarTextoPalabrasSinonimos() {
-        val sb = StringBuilder()
+    fun generarEcuacion(view: View) {
+        val stringBuilder = StringBuilder()
 
         for (i in 0 until linearLayout.childCount) {
             val elemento = linearLayout.getChildAt(i)
+
             val txtInputPalabra = elemento.findViewById<TextInputEditText>(R.id.palabra_1)
             val txtInputSinonimoContainer = elemento.findViewById<LinearLayout>(R.id.textInputSinonimoContainer)
 
             val palabra = txtInputPalabra.text.toString().trim()
 
-            sb.append("Palabra: $palabra\n")
-
-            for (j in 0 until txtInputSinonimoContainer.childCount) {
-                val txtInputSinonimo =
-                    txtInputSinonimoContainer.getChildAt(j) as? TextInputEditText
-                val sinonimo = txtInputSinonimo?.text.toString().trim()
-                if (sinonimo.isNotEmpty()) {
-                    sb.append("   Sinónimo: $sinonimo\n")
+            if (palabra.isNotEmpty()) {
+                if (stringBuilder.isNotEmpty()) {
+                    stringBuilder.append(" AND ")
                 }
-            }
 
-            sb.append("\n")
+                stringBuilder.append("(")
+                stringBuilder.append(palabra)
+
+                for (j in 0 until txtInputSinonimoContainer.childCount) {
+                    val txtInputSinonimo = txtInputSinonimoContainer.getChildAt(j) as TextInputEditText
+                    val sinonimo = txtInputSinonimo.text.toString().trim()
+
+                    if (sinonimo.isNotEmpty()) {
+                        stringBuilder.append(" OR ")
+                        stringBuilder.append(sinonimo)
+                    }
+                }
+
+                stringBuilder.append(")")
+            }
         }
 
-        txtPalabrasSinonimos.text = sb.toString()
+        val resultado = stringBuilder.toString()
+        textViewEcuacion.text = resultado
     }
+
 
 }
