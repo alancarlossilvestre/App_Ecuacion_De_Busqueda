@@ -28,13 +28,22 @@
 
             <Button
 
+                android:id="@+id/btnUnirPalabrasSinonimos"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="Generar Ecuacion"
                 android:onClick="generarEcuacion" />
-        </LinearLayout>
 
+            <TextView
+                android:id="@+id/txtPalabrasSinonimos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textAppearance="?android:textAppearanceMedium"
+                />
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
