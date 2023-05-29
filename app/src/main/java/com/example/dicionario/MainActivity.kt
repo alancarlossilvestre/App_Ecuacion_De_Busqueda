@@ -20,12 +20,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var copiarTextoManager: copiarTextoManager
     private lateinit var linearLayout: LinearLayout
     private lateinit var btnAgregar: Button
-    private lateinit var txtInputPalabra: TextInputEditText
-    private lateinit var txtInputSinonimo : TextInputEditText
+
 
     private lateinit var btnAdd : AppCompatImageView
     private var contadorP = 0
-    private var contadorS = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,15 +44,9 @@ class MainActivity : AppCompatActivity() {
     private fun agregarElemento(){
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val nuevoElemento = inflater.inflate(R.layout.palabras_y_sinonimos, null)
-
-        //val txtViewIngresePalabra = nuevoElemento.findViewById<TextView>(R.id.textViewIngresePalabra)
         val txtInputPalabra =  nuevoElemento.findViewById<TextInputEditText>(R.id.palabra_1)
-        //val linearLayoutSinonimo = nuevoElemento.findViewById<LinearLayout>(R.id.textInputSinonimoContainer)
-        //val txtViewSP = nuevoElemento.findViewById<TextView>(R.id.txtViewPS)
         val txtInputSinonimo =  nuevoElemento.findViewById<TextInputEditText>(R.id.inputEditTextSinonimo)
-        //val linearLayoutAddDelete = nuevoElemento.findViewById<LinearLayout>(R.id.layoutAddDelet)
         btnAdd =  nuevoElemento.findViewById(R.id.addS)
-        //val btnDelete = nuevoElemento.findViewById<ImageView>(R.id.quitarS)
 
         contadorP++
         txtInputPalabra.hint = "Palabra $contadorP"
